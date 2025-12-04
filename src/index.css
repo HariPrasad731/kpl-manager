@@ -1,0 +1,226 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --accent: #22c55e;
+  --text-main: #ffffff;
+  --text-dim: #cccccc;
+}
+
+/* -------------------------------------------------- */
+/* BACKGROUND & GLOBAL STYLING */
+/* -------------------------------------------------- */
+
+body {
+  font-family: system-ui, Arial, sans-serif;
+  background-color: black;
+  color: var(--text-main);
+}
+
+/* Background image */
+.app-root {
+  min-height: 100vh;
+  background-image: url("https://images.pexels.com/photos/399187/pexels-photo-399187.jpeg?auto=compress&cs=tinysrgb&w=1600");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  position: relative;
+}
+
+/* Transparent overlay */
+.app-root::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(3px);
+}
+
+/* Ensure content floats above */
+.app-shell {
+  position: relative;
+  z-index: 5;
+  min-height: 100vh;
+}
+
+/* Main content layout */
+.app-main {
+  padding: 28px;
+  max-width: 1100px;
+  margin: auto;
+}
+
+/* -------------------------------------------------- */
+/* NAVBAR */
+/* -------------------------------------------------- */
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 28px;
+  background: rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(6px);
+  position: sticky;
+  top: 0;
+  border-bottom: 1px solid gray;
+  z-index: 10;
+}
+
+.navbar-left {
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.navbar-links {
+  display: flex;
+  gap: 12px;
+}
+
+.navbar-links a {
+  padding: 6px 14px;
+  border-radius: 999px;
+  text-decoration: none;
+  color: var(--text-dim);
+  border: 1px solid transparent;
+  background: rgba(255,255,255,0.05);
+  transition: 0.2s ease-in-out;
+}
+
+.navbar-links a:hover {
+  color: white;
+  background: rgba(255,255,255,0.15);
+  border-color: rgba(255,255,255,0.4);
+}
+
+.navbar-links .active {
+  background: var(--accent);
+  color: black;
+  font-weight: bold;
+}
+
+/* -------------------------------------------------- */
+/* DASHBOARD CARDS */
+/* -------------------------------------------------- */
+
+.stat-row {
+  display: flex;
+  gap: 14px;
+  margin-top: 18px;
+  flex-wrap: wrap;
+}
+
+.stat-card {
+  padding: 18px;
+  border-radius: 12px;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.3);
+  min-width: 140px;
+  backdrop-filter: blur(6px);
+  transition: .25s;
+}
+
+.stat-card:hover {
+  transform: scale(1.05);
+  background: rgba(255,255,255,0.14);
+}
+
+/* -------------------------------------------------- */
+/* TEAMS PAGE */
+/* -------------------------------------------------- */
+
+.search-row {
+  margin: 18px 0;
+}
+
+.search-row input {
+  padding: 8px;
+  width: 240px;
+  border-radius: 8px;
+  background: rgba(255,255,255,0.1);
+  color: white;
+  border: 1px solid gray;
+}
+
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
+  gap: 14px;
+}
+
+.team-card {
+  padding: 14px;
+  border-radius: 12px;
+  background: rgba(255,255,255,0.09);
+  border: 1px solid gray;
+  transition: 0.25s;
+}
+
+.team-card:hover {
+  background: rgba(255,255,255,0.18);
+  transform: translateY(-4px);
+}
+
+/* -------------------------------------------------- */
+/* TABLE (MATCHES PAGE) */
+/* -------------------------------------------------- */
+
+.matches-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 18px;
+}
+
+.matches-table th {
+  background: rgba(255,255,255,0.2);
+}
+
+.matches-table th, .matches-table td {
+  padding: 10px;
+  border: 1px solid gray;
+}
+
+/* -------------------------------------------------- */
+/* FORMS */
+/* -------------------------------------------------- */
+
+.form {
+  margin-top: 22px;
+  padding: 18px;
+  background: rgba(255,255,255,0.12);
+  border-radius: 10px;
+  border: 1px solid gray;
+  max-width: 400px;
+}
+
+.form-row {
+  margin-bottom: 12px;
+}
+
+.form-row input {
+  padding: 8px;
+  width: 100%;
+  border-radius: 8px;
+  border: 1px solid gray;
+  background: rgba(255,255,255,0.1);
+  color: white;
+}
+
+button {
+  padding: 8px 16px;
+  border: none;
+  background: var(--accent);
+  color: black;
+  font-weight: bold;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: .2s;
+}
+
+button:hover {
+  transform: scale(1.05);
+}
